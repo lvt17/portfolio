@@ -155,14 +155,17 @@
     /* SECTION 2: ABOUT ME BIO */
     /* ========================= */
     .bio-section {
-      padding: 80px 24px;
+      padding: 100px 60px;
       background: #0a0a0a;
     }
 
     .bio-content {
-      max-width: 700px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 80px;
+      align-items: start;
     }
 
     /* Profile photo container */
@@ -170,7 +173,6 @@
       position: relative;
       display: flex;
       justify-content: center;
-      margin-bottom: 50px;
     }
 
     .profile-photo {
@@ -436,6 +438,20 @@
         height: 230px;
       }
 
+      .bio-section {
+        padding: 60px 24px;
+      }
+
+      .bio-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .bio-text-content {
+        text-align: left;
+      }
+
       .bio-title {
         font-size: 36px;
       }
@@ -570,42 +586,45 @@
           <img src="images/lotus-pink.png" alt="" class="profile-lotus bottom-right">
         </div>
 
-        <h2 class="bio-title">ABOUT ME</h2>
-        <h3 class="bio-name">DORA-THUỲ DUNG</h3>
-        <p class="bio-description">
-          <strong>RMIT Graphic Design Sophomore | 2D & UI/UX.</strong><br><br>
-          I live by the mantra: 'Nothing is lost – it only changes material.' My mission is to bridge
-          Vietnamese traditional culture with the digital revolution through interactive and modern design.
-        </p>
-
-        <!-- Skills Icons -->
-        <div class="skills-icons">
-          <div class="skill-icon">
-            <img src="images/icon-blender.png" alt="Blender">
-          </div>
-          <div class="skill-icon">
-            <img src="images/icon-blender.png" alt="3D">
-          </div>
-          <div class="skill-icon">
-            <img src="images/icon-photoshop.png" alt="Photoshop">
-          </div>
-          <div class="skill-icon">
-            <img src="images/icon-illustrator.png" alt="Illustrator">
-          </div>
-        </div>
-
-        <!-- Legacy Covenant -->
-        <div class="legacy-section">
-          <h3 class="legacy-title">The Legacy Covenant</h3>
-          <p class="legacy-text">
-            Nothing is lost, this is the core belief that the flow of Vietnamese culture is eternal. When
-            silk, paper, or ceramics transform into pixels, vectors, and algorithms, their identity is not
-            diminished; instead, it becomes more resilient within the digital timeline.
+        <!-- Text content column -->
+        <div class="bio-text-content">
+          <h2 class="bio-title">ABOUT ME</h2>
+          <h3 class="bio-name">DORA-THUỲ DUNG</h3>
+          <p class="bio-description">
+            <strong>RMIT Graphic Design Sophomore | 2D & UI/UX.</strong><br><br>
+            I live by the mantra: 'Nothing is lost – it only changes material.' My mission is to bridge
+            Vietnamese traditional culture with the digital revolution through interactive and modern design.
           </p>
-          <p class="legacy-text">
-            Standing at this intersection, I use technology as a tool to decode cultural depths, ushering
-            traditional art into a new era, an era of interaction and perpetual presence.
-          </p>
+
+          <!-- Skills Icons -->
+          <div class="skills-icons">
+            <div class="skill-icon">
+              <img src="images/icon-blender.png" alt="Blender">
+            </div>
+            <div class="skill-icon">
+              <img src="images/icon-blender.png" alt="3D">
+            </div>
+            <div class="skill-icon">
+              <img src="images/icon-photoshop.png" alt="Photoshop">
+            </div>
+            <div class="skill-icon">
+              <img src="images/icon-illustrator.png" alt="Illustrator">
+            </div>
+          </div>
+
+          <!-- Legacy Covenant -->
+          <div class="legacy-section">
+            <h3 class="legacy-title">The Legacy Covenant</h3>
+            <p class="legacy-text">
+              Nothing is lost, this is the core belief that the flow of Vietnamese culture is eternal. When
+              silk, paper, or ceramics transform into pixels, vectors, and algorithms, their identity is not
+              diminished; instead, it becomes more resilient within the digital timeline.
+            </p>
+            <p class="legacy-text">
+              Standing at this intersection, I use technology as a tool to decode cultural depths, ushering
+              traditional art into a new era, an era of interaction and perpetual presence.
+            </p>
+          </div>
         </div>
       </div>
     </section>
