@@ -220,7 +220,7 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 150px;
+  height: 280px;
   background: linear-gradient(to bottom, transparent 0%, #000 100%);
   z-index: 5;
   pointer-events: none;
@@ -373,12 +373,12 @@ main {
 .lotus-wrapper {
   position: absolute;
 
-  left: 75%;
-  bottom: 5%;
+  left: 72%;
+  bottom: -25%;
 
   transform: translateX(10%);
 
-  z-index: 2;
+  z-index: 3;
 
   display: flex;
   gap: 40px;
