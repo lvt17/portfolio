@@ -1795,6 +1795,21 @@ main {
     height: 250px;
   }
 
+  /* MOBILE GRADIENT BACKGROUND FALLBACK (when p5.js disabled) */
+  .hero-section {
+    background: linear-gradient(135deg,
+        hsl(280, 40%, 55%) 0%,
+        hsl(260, 45%, 50%) 25%,
+        hsl(240, 50%, 45%) 50%,
+        hsl(280, 45%, 50%) 75%,
+        hsl(300, 40%, 55%) 100%);
+  }
+
+  #bg-canvas {
+    display: none;
+    /* Hide canvas container on mobile */
+  }
+
   /* Footer */
   .footer {
     padding: 40px 24px;

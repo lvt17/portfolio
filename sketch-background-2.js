@@ -3,15 +3,26 @@ const aboutSketch = (p) => {
   let icons = [];
   let gridCols, gridRows;
   let spacing = 100;
+  let isMobile = false;
 
   p.preload = () => {
     img = p.loadImage("images/pattern-old-coin.png");
   };
 
   p.setup = () => {
+    isMobile = p.windowWidth < 768;
+
+    // Don't create canvas on mobile for performance
+    if (isMobile) {
+      return;
+    }
+
+    const aboutEl = document.querySelector("#about");
+    if (!aboutEl) return;
+
     const c = p.createCanvas(
       p.windowWidth,
-      document.querySelector("#about").offsetHeight
+      aboutEl.offsetHeight
     );
     c.parent("bg-canvas-about");
 
@@ -19,8 +30,12 @@ const aboutSketch = (p) => {
     p.noStroke();
     p.clear();
 
-    // Optimize: reduce framerate
-    p.frameRate(20);
+    // Optimize: reduce framerate on tablet
+    const isTablet = p.windowWidth < 1024;
+    p.frameRate(isTablet ? 15 : 20);
+
+    // Larger spacing on tablet = fewer icons
+    spacing = isTablet ? 150 : 100;
 
     gridCols = Math.ceil((p.width + spacing) / spacing);
     gridRows = Math.ceil((p.height + spacing) / spacing);
@@ -46,6 +61,8 @@ const aboutSketch = (p) => {
   };
 
   p.draw = () => {
+    if (isMobile) return;
+
     p.clear();
 
     for (let icon of icons) {
@@ -67,11 +84,19 @@ const aboutSketch = (p) => {
   };
 
   p.windowResized = () => {
+    if (isMobile) return;
+
+    const aboutEl = document.querySelector("#about");
+    if (!aboutEl) return;
+
     p.resizeCanvas(
       p.windowWidth,
-      document.querySelector("#about").offsetHeight
+      aboutEl.offsetHeight
     );
   };
 };
 
-new p5(aboutSketch);
+// Only init on non-mobile
+if (window.innerWidth >= 768) {
+  new p5(aboutSketch);
+}

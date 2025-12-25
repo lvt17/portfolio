@@ -105,10 +105,19 @@ function setup() {
   colorMode(HSB, 360, 100, 100, 100);
   noStroke();
 
-  // Optimize: reduce framerate for better performance
-  frameRate(24);
-
   detectDevice();
+
+  // PERFORMANCE: Disable animation on mobile, use static gradient
+  if (device === "mobile") {
+    frameRate(1); // Minimal framerate
+    background(280, 40, 60); // Static purple gradient
+    noLoop(); // Stop the draw loop completely
+    return;
+  }
+
+  // Optimize: reduce framerate for better performance
+  frameRate(device === "tablet" ? 20 : 24);
+
   setupByDevice();
   generateStrips();
 }
@@ -117,6 +126,11 @@ function setup() {
    DRAW 
 ========================= */
 function draw() {
+  // Skip animation on mobile for performance
+  if (device === "mobile") {
+    return;
+  }
+
   background(210, 30, 95);
 
   strips.forEach(s => {
