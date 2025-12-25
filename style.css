@@ -210,7 +210,20 @@ main {
   position: relative;
   min-height: 100vh;
   display: block;
-  overflow: visible;
+  overflow: hidden;
+}
+
+/* Gradient fade at bottom of hero */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent 0%, #000 100%);
+  z-index: 5;
+  pointer-events: none;
 }
 
 /* p5 mount container */
@@ -249,7 +262,7 @@ main {
   position: relative;
   min-height: 100vh;
   display: block;
-  overflow: visible;
+  overflow: hidden;
 }
 
 #bg-canvas {
@@ -361,11 +374,11 @@ main {
   position: absolute;
 
   left: 75%;
-  bottom: -15%;
+  bottom: 5%;
 
-  transform: translateX(10%) translateY(30%);
+  transform: translateX(10%);
 
-  z-index: 1 !important;
+  z-index: 2;
 
   display: flex;
   gap: 40px;
