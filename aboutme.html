@@ -181,6 +181,36 @@
     .bio-section {
       padding: 100px 60px;
       background: #0a0a0a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Frame decorations */
+    .frame-decor {
+      position: absolute;
+      width: 80px;
+      height: auto;
+      z-index: 1;
+    }
+
+    .frame-decor.top-left {
+      top: 40px;
+      left: 40px;
+    }
+
+    .frame-decor.top-right {
+      top: 40px;
+      right: 40px;
+    }
+
+    .frame-decor.bottom-left {
+      bottom: 40px;
+      left: 40px;
+    }
+
+    .frame-decor.bottom-right {
+      bottom: 40px;
+      right: 40px;
     }
 
     .bio-content {
@@ -200,28 +230,34 @@
     }
 
     .profile-photo {
-      width: 220px;
-      height: 280px;
-      border-radius: 110px 110px 110px 0;
+      width: 280px;
+      height: 350px;
+      border-radius: 140px 140px 140px 0;
       object-fit: cover;
-      border: 3px solid rgba(255, 134, 252, 0.3);
     }
 
     .profile-lotus {
       position: absolute;
-      width: 120px;
       height: auto;
+      z-index: 2;
     }
 
     .profile-lotus.top-right {
-      top: -40px;
-      right: 15%;
+      width: 100px;
+      top: -30px;
+      right: -50px;
+    }
+
+    .profile-lotus.middle-right {
+      width: 80px;
+      top: 40%;
+      right: -60px;
     }
 
     .profile-lotus.bottom-right {
-      bottom: -20px;
-      right: 10%;
-      width: 80px;
+      width: 60px;
+      bottom: 20px;
+      right: -40px;
     }
 
     /* Bio text */
@@ -605,11 +641,18 @@
 
     <!-- SECTION 2: BIO -->
     <section class="bio-section">
+      <!-- Frame decorations -->
+      <img src="images/frame-decor-tl.png" alt="" class="frame-decor top-left">
+      <img src="images/frame-decor-tr.png" alt="" class="frame-decor top-right">
+      <img src="images/frame-decor-bl.png" alt="" class="frame-decor bottom-left">
+      <img src="images/frame-decor-br.png" alt="" class="frame-decor bottom-right">
+
       <div class="bio-content">
-        <!-- Profile photo with lotus -->
+        <!-- Profile photo with lotus flowers growing from right side -->
         <div class="profile-container">
           <img src="images/profile-photo.png" alt="Dora Thùy Dung" class="profile-photo">
           <img src="images/lotus-pink.png" alt="" class="profile-lotus top-right">
+          <img src="images/lotus-pink.png" alt="" class="profile-lotus middle-right">
           <img src="images/lotus-pink.png" alt="" class="profile-lotus bottom-right">
         </div>
 
