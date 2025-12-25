@@ -1574,3 +1574,281 @@ main {
     justify-content: center;
   }
 }
+
+/* ========================= */
+/* COMPREHENSIVE MOBILE RESPONSIVE */
+/* ========================= */
+
+/* TABLET (768px - 1024px) */
+@media (max-width: 1024px) {
+
+  /* Hero Section */
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 100px 40px 150px;
+    min-height: auto;
+  }
+
+  .First-intro {
+    font-size: clamp(48px, 8vw, 80px);
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+  }
+
+  .lotus-wrapper {
+    left: 60%;
+    bottom: -30%;
+  }
+
+  .lotus {
+    width: 300px;
+  }
+
+  .home-right-img {
+    width: 280px;
+    right: 40px;
+  }
+
+  /* About Section */
+  .about-section {
+    min-height: auto;
+    padding: 80px 40px;
+  }
+
+  .about-text-left,
+  .about-text-right {
+    position: relative;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .about-heading {
+    font-size: 72px;
+  }
+
+  .about-main {
+    font-size: 36px;
+  }
+
+  .about-mirror {
+    font-size: 24px;
+  }
+
+  .about-dragon {
+    width: 90%;
+    bottom: -40px;
+  }
+}
+
+/* MOBILE (< 768px) */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .navbar {
+    padding: 0 20px;
+    height: 70px;
+  }
+
+  .logo-img {
+    height: 40px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    min-height: auto;
+  }
+
+  .hero-section::after {
+    height: 200px;
+  }
+
+  .home-layout {
+    padding: 80px 24px 120px;
+    gap: 30px;
+  }
+
+  .First-intro {
+    font-size: clamp(36px, 10vw, 56px);
+    padding-top: 5vh;
+    padding-bottom: 3vh;
+    text-align: center;
+  }
+
+  .First-intro span1 {
+    margin-left: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .lotus-wrapper {
+    left: 50%;
+    bottom: -35%;
+    transform: translateX(-50%);
+  }
+
+  .lotus {
+    width: 200px;
+  }
+
+  .lotus-2 {
+    display: none;
+  }
+
+  .home-right-img {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: 60px 24px;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-text-left,
+  .about-text-right {
+    position: relative;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .about-heading {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .about-main {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  .about-mirror {
+    font-size: 18px;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .about-quote {
+    font-size: 16px;
+  }
+
+  .about-dragon {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    margin: 30px auto 0;
+  }
+
+  /* Art Quote Section */
+  .art-quote-section {
+    padding: 60px 24px;
+  }
+
+  .art-quote-content h2 {
+    font-size: 28px;
+  }
+
+  .art-quote-content p {
+    font-size: 16px;
+  }
+
+  /* Tradition Section */
+  .tradition-section {
+    padding: 60px 24px;
+  }
+
+  .tradition-content h2 {
+    font-size: 48px;
+  }
+
+  /* Gallery Grid */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 24px;
+  }
+
+  .gallery-item {
+    height: 250px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 40px 24px;
+  }
+
+  .footer-logo {
+    height: 50px;
+  }
+
+  .footer h3 {
+    font-size: 16px;
+  }
+
+  .footer a,
+  .footer p {
+    font-size: 14px;
+  }
+}
+
+/* SMALL MOBILE (< 480px) */
+@media (max-width: 480px) {
+  .First-intro {
+    font-size: clamp(28px, 12vw, 42px);
+  }
+
+  .about-heading {
+    font-size: 36px;
+  }
+
+  .about-main {
+    font-size: 20px;
+  }
+
+  .about-mirror {
+    font-size: 14px;
+  }
+
+  .lotus-wrapper {
+    bottom: -40%;
+  }
+
+  .lotus {
+    width: 150px;
+  }
+
+  .art-quote-content h2 {
+    font-size: 22px;
+  }
+
+  .tradition-content h2 {
+    font-size: 36px;
+  }
+
+  .gallery-item {
+    height: 200px;
+  }
+}
