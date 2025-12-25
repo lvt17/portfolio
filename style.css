@@ -576,10 +576,12 @@ main {
 
 .about-mirror-blue {
   color: #41D9FF;
+  filter: blur(1px);
 }
 
 .about-mirror-pink {
   color: #FF71E7;
+  filter: blur(1px);
 }
 
 .about-quote {
