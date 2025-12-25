@@ -17,9 +17,9 @@ const colorPresets = {
 
   sunset: {
     baseHue: 280,
-    hueRange: 60,
-    saturation: 50,
-    brightness: 90
+    hueRange: 50,
+    saturation: 30,  // Reduced from 50 for softer stripes
+    brightness: 70   // Reduced for less harsh contrast
   },
 
   mintPink: {
