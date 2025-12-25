@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery – Dora Portfolio</title>
-    <link rel="icon" href="images/LOGO-WEB.png" type="image/png">
+    <link rel="icon" href="figma/assets/LOGO-WEB 1.png" type="image/png">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,362 +13,257 @@
     <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css" />
 
     <style>
-        /* GALLERY PAGE SPECIFIC STYLES */
+        /* GALLERY PAGE BASE */
         .gallery-page {
-            padding-top: 120px;
+            background: #000;
             min-height: 100vh;
-            background: linear-gradient(180deg, #000 0%, #050510 50%, #000 100%);
-        }
-
-        .gallery-page-header {
-            text-align: center;
-            padding: 60px 40px;
+            padding-top: 120px;
+            overflow-x: hidden;
             position: relative;
         }
 
-        .gallery-page-title {
+        /* HEADER SECTION */
+        .gallery-hero {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gallery-title {
             font-family: 'Handjet', sans-serif;
-            font-size: clamp(80px, 15vw, 180px);
+            font-size: clamp(80px, 15vw, 200px);
             font-weight: 700;
-            letter-spacing: 0.3em;
             color: #61f161;
-            margin-bottom: 24px;
-            text-shadow:
-                0 0 30px rgba(97, 241, 97, 0.4),
-                0 0 60px rgba(97, 241, 97, 0.2);
-            animation: title-glow 4s ease-in-out infinite;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(97, 241, 97, 0.4);
         }
 
-        @keyframes title-glow {
-
-            0%,
-            100% {
-                text-shadow:
-                    0 0 30px rgba(97, 241, 97, 0.4),
-                    0 0 60px rgba(97, 241, 97, 0.2);
-            }
-
-            50% {
-                text-shadow:
-                    0 0 50px rgba(97, 241, 97, 0.6),
-                    0 0 100px rgba(97, 241, 97, 0.3);
-            }
-        }
-
-        .gallery-page-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.6);
-            letter-spacing: 0.15em;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* DECORATIVE ELEMENTS */
-        .gallery-decor {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            opacity: 0.3;
-            animation: float-rotate 10s ease-in-out infinite;
-        }
-
-        .gallery-decor-left {
-            left: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .gallery-decor-right {
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%) scaleX(-1);
-        }
-
-        /* MASONRY GALLERY */
-        .gallery-masonry {
-            column-count: 4;
-            column-gap: 20px;
-            padding: 40px 80px 100px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .masonry-item:hover {
-            transform: scale(1.02);
-        }
-
-        .masonry-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .masonry-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .masonry-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg,
-                    transparent 0%,
-                    transparent 50%,
-                    rgba(0, 0, 0, 0.9) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 24px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .masonry-item:hover .masonry-overlay {
-            opacity: 1;
-        }
-
-        .masonry-overlay h3 {
-            font-family: 'Handjet', sans-serif;
-            font-size: 28px;
-            font-weight: 500;
-            color: #fff;
-            margin-bottom: 8px;
-            transform: translateY(20px);
-            transition: transform 0.4s ease;
-        }
-
-        .masonry-item:hover .masonry-overlay h3 {
-            transform: translateY(0);
-        }
-
-        .masonry-overlay p {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            transform: translateY(20px);
-            transition: transform 0.4s ease 0.1s;
-        }
-
-        .masonry-item:hover .masonry-overlay p {
-            transform: translateY(0);
-        }
-
-        .masonry-category {
-            display: inline-block;
-            font-family: 'Handjet', sans-serif;
-            font-size: 14px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            background: rgba(97, 241, 97, 0.2);
-            color: #61f161;
-            margin-top: 8px;
-        }
-
-        /* LIGHTBOX */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 10000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .lightbox.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .lightbox-content {
-            max-width: 90vw;
-            max-height: 90vh;
-            position: relative;
-        }
-
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 85vh;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .lightbox-info {
-            position: absolute;
-            bottom: -60px;
-            left: 0;
-            right: 0;
-            text-align: center;
-        }
-
-        .lightbox-info h3 {
-            font-family: 'Handjet', sans-serif;
-            font-size: 32px;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .lightbox-info p {
+        .gallery-subtitle {
             font-family: 'Inter', sans-serif;
             font-size: 16px;
             color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.2em;
+            margin-top: 20px;
+            text-transform: uppercase;
         }
 
-        .lightbox-close {
+        /* DECORATIVE BACKGROUND ELEMENTS */
+        .bg-decor {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        .decor-coin-left {
+            top: 200px;
+            left: 2%;
+            width: 120px;
+        }
+
+        .decor-coin-right {
+            top: 250px;
+            right: 2%;
+            width: 120px;
+        }
+
+        /* ARTISTIC GRID */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            gap: 20px;
+            padding: 80px 4%;
+            max-width: 1800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        .gallery-item {
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            z-index: 20;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        /* Specific positions for GALLERY 1 look */
+        .item-dragon {
+            grid-column: 1 / span 4;
+            grid-row: 1 / span 3;
+            align-self: center;
+        }
+
+        .item-bloom-1 {
+            grid-column: 4 / span 3;
+            grid-row: 1 / span 4;
+        }
+
+        .item-text-portfolio {
+            grid-column: 7 / span 4;
+            grid-row: 1 / span 2;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
         }
 
-        .lightbox-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
+        .portfolio-text {
+            font-family: 'Handjet', sans-serif;
+            font-size: clamp(60px, 8vw, 120px);
+            color: #fff;
+            line-height: 0.8;
+            text-align: right;
         }
 
-        .lightbox-close svg {
-            width: 24px;
-            height: 24px;
-            stroke: #fff;
+        .portfolio-text span {
+            display: block;
+            font-size: 0.4em;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .lightbox-nav {
+        .item-coin-red {
+            grid-column: 10 / span 3;
+            grid-row: 2 / span 3;
+        }
+
+        .item-corner-decor {
+            grid-column: 7 / span 3;
+            grid-row: 3 / span 3;
+        }
+
+        .item-bloom-2 {
+            grid-column: 3 / span 3;
+            grid-row: 4 / span 4;
+        }
+
+        .item-coin-red-small {
+            grid-column: 1 / span 2;
+            grid-row: 4 / span 2;
+        }
+
+        .item-bloom-3 {
+            grid-column: 9 / span 3;
+            grid-row: 5 / span 4;
+        }
+
+        /* INFO OVERLAY */
+        .item-info {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .lightbox-nav:hover {
-            background: rgba(97, 241, 97, 0.2);
-            border-color: #61f161;
-        }
-
-        .lightbox-nav svg {
-            width: 24px;
-            height: 24px;
-            stroke: #fff;
-        }
-
-        .lightbox-prev {
+            bottom: 20px;
             left: 20px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
         }
 
-        .lightbox-next {
-            right: 20px;
+        .gallery-item:hover .item-info {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* BACK TO HOME */
-        .back-to-home {
+        .item-title {
+            font-family: 'Handjet', sans-serif;
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .item-category {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #61f161;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* BACK BUTTON */
+        .back-btn {
             position: fixed;
             bottom: 40px;
             right: 40px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 28px;
             background: rgba(0, 0, 0, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 40px;
             color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
             text-decoration: none;
             font-family: 'Handjet', sans-serif;
-            font-size: 20px;
-            transition: all 0.3s ease;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             z-index: 100;
+            transition: all 0.3s ease;
         }
 
-        .back-to-home:hover {
+        .back-btn:hover {
             background: #61f161;
             color: #000;
             border-color: #61f161;
-            transform: translateY(-3px);
-        }
-
-        .back-to-home svg {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .back-to-home:hover svg {
-            transform: translateX(-5px);
         }
 
         /* RESPONSIVE */
-        @media (max-width: 1200px) {
-            .gallery-masonry {
-                column-count: 3;
-                padding: 40px;
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .item-dragon {
+                grid-column: 1 / span 3;
+            }
+
+            .item-bloom-1 {
+                grid-column: 4 / span 3;
+            }
+
+            .item-text-portfolio {
+                grid-column: 1 / span 6;
+                text-align: center;
             }
         }
 
         @media (max-width: 768px) {
-            .gallery-masonry {
-                column-count: 2;
-                padding: 20px;
-                column-gap: 12px;
+            .gallery-page {
+                padding-top: 100px;
             }
 
-            .masonry-item {
-                margin-bottom: 12px;
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
             }
 
-            .gallery-page-title {
-                letter-spacing: 0.15em;
+            .item-dragon,
+            .item-bloom-1,
+            .item-coin-red,
+            .item-corner-decor,
+            .item-bloom-2,
+            .item-bloom-3 {
+                grid-column: span 2;
+                grid-row: auto;
             }
 
-            .gallery-decor {
-                display: none;
-            }
-
-            .back-to-home {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 20px;
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-masonry {
-                column-count: 1;
+            .item-text-portfolio {
+                grid-column: 1 / span 4;
             }
         }
     </style>
@@ -376,210 +271,111 @@
 
 <body>
 
-    <!-- PAGE TRANSITION OVERLAY -->
-    <div class="page-transition"></div>
-
-    <style>
-        /* PAGE TRANSITION EFFECT */
-        .page-transition {
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(135deg, #0a0a1a 0%, #0a1a0a 50%, #0a0a1a 100%);
-            z-index: 99999;
-            pointer-events: none;
-            opacity: 1;
-            animation: page-fade-in 0.8s ease forwards;
-        }
-
-        @keyframes page-fade-in {
-            0% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-
-        .page-transition.fade-out {
-            animation: page-fade-out 0.5s ease forwards;
-            visibility: visible;
-            opacity: 0;
-        }
-
-        @keyframes page-fade-out {
-            0% {
-                opacity: 0;
-                visibility: visible;
-            }
-
-            100% {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-    </style>
-
-    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-left">
-            <a href="index.html#home" class="logo-link">
-                <img src="images/LOGO-WEB.png" alt="Logo" class="logo-img">
+            <a href="index.html" class="logo-link">
+                <img src="figma/assets/LOGO-WEB 1.png" alt="Logo" class="logo-img">
             </a>
         </div>
 
         <div class="nav-right">
             <ul class="nav-links">
-                <li><a href="index.html#about">ABOUT ME</a></li>
+                <li><a href="aboutme.html">ABOUT ME</a></li>
                 <li><a href="gallery.html" class="is-active-gallery">GALLERY</a></li>
             </ul>
 
             <button class="hamburger" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu">
-        <a href="index.html#home">HOME</a>
-        <a href="index.html#about">ABOUT ME</a>
+        <a href="index.html">HOME</a>
+        <a href="aboutme.html">ABOUT ME</a>
         <a href="gallery.html" class="is-active-gallery">GALLERY</a>
     </div>
 
-    <!-- MAIN -->
     <main class="gallery-page">
+        <!-- Hero Title -->
+        <section class="gallery-hero">
+            <h1 class="gallery-title">GALLERY</h1>
+            <p class="gallery-subtitle">Exploring Vietnamese cultural heritage through art and design</p>
+        </section>
 
-        <!-- HEADER -->
-        <div class="gallery-page-header">
-            <img src="images/pattern-old-coin.png" alt="Decoration" class="gallery-decor gallery-decor-left" />
+        <!-- Decorative Background Coins -->
+        <img src="figma/assets/pattern 3 1.png" alt="" class="bg-decor decor-coin-left">
+        <img src="figma/assets/pattern 3 2.png" alt="" class="bg-decor decor-coin-right">
 
-            <h1 class="gallery-page-title">GALLERY</h1>
-            <p class="gallery-page-subtitle">
-                Exploring Vietnamese cultural heritage through art and design
-            </p>
+        <!-- Main Artistic Grid -->
+        <div class="gallery-grid">
 
-            <img src="images/pattern-old-coin.png" alt="Decoration" class="gallery-decor gallery-decor-right" />
-        </div>
-
-        <!-- MASONRY GALLERY -->
-        <div class="gallery-masonry">
-
-            <div class="masonry-item" data-title="Dragon of Trần Dynasty" data-category="Traditional Art">
-                <img src="images/Dragon of the Trần Dynasty .png" alt="Dragon Tran Dynasty" />
-                <div class="masonry-overlay">
-                    <h3>Dragon of Trần Dynasty</h3>
-                    <p>Traditional Vietnamese mythology and art</p>
-                    <span class="masonry-category">Traditional</span>
+            <!-- Dragon -->
+            <div class="gallery-item item-dragon">
+                <img src="figma/assets/Dragon of the Trần Dynasty  1.png" alt="Dragon of the Trần Dynasty">
+                <div class="item-info">
+                    <h3 class="item-title">Dragon of Trần Dynasty</h3>
+                    <p class="item-category">Traditional Art</p>
                 </div>
             </div>
 
-            <div class="masonry-item" data-title="Ancient Coin Pattern" data-category="Cultural Symbol">
-                <img src="images/pattern-old-coin.png" alt="Ancient Coin Pattern" />
-                <div class="masonry-overlay">
-                    <h3>Ancient Coin Pattern</h3>
-                    <p>Symbols of prosperity and fortune</p>
-                    <span class="masonry-category">Symbol</span>
+            <!-- Digital Bloom 1 -->
+            <div class="gallery-item item-bloom-1">
+                <img src="figma/assets/flower-aboutme 1.png" alt="Digital Bloom">
+                <div class="item-info">
+                    <h3 class="item-title">Digital Bloom</h3>
+                    <p class="item-category">Digital Art</p>
                 </div>
             </div>
 
-            <div class="masonry-item" data-title="Lotus Flower" data-category="Nature">
-                <img src="images/flower-1.png" alt="Lotus Flower" />
-                <div class="masonry-overlay">
-                    <h3>Lotus Flower</h3>
-                    <p>Symbol of purity in Vietnamese culture</p>
-                    <span class="masonry-category">Nature</span>
+            <!-- Portfolio Text -->
+            <div class="item-text-portfolio">
+                <div class="portfolio-text">
+                    <span>DoraChann</span>
+                    PortfoLio
                 </div>
             </div>
 
-            <div class="masonry-item" data-title="Digital Bloom" data-category="Digital Art">
-                <img src="images/flower2-2.png" alt="Digital Flower" />
-                <div class="masonry-overlay">
-                    <h3>Digital Bloom</h3>
-                    <p>Modern interpretation of traditional motifs</p>
-                    <span class="masonry-category">Digital</span>
+            <!-- Red Coin Pattern -->
+            <div class="gallery-item item-coin-red">
+                <img src="figma/assets/pattern 3 1.png" alt="Ancient Coin" style="filter: drop-shadow(0 0 20px red);">
+                <div class="item-info">
+                    <h3 class="item-title">Imperial Coin</h3>
+                    <p class="item-category">Symbol</p>
                 </div>
             </div>
 
-            <div class="masonry-item" data-title="Vietnamese Typography" data-category="Calligraphy">
-                <img src="images/second-intro.png" alt="Vietnamese Character" />
-                <div class="masonry-overlay">
-                    <h3>Vietnamese Typography</h3>
-                    <p>The beauty of Vietnamese script</p>
-                    <span class="masonry-category">Typography</span>
-                </div>
+            <!-- Corner Decor -->
+            <div class="gallery-item item-corner-decor">
+                <img src="figma/assets/frame-decor 1.png" alt="Traditional Frame">
             </div>
 
-            <div class="masonry-item" data-title="Decorative Frame" data-category="Ornament">
-                <img src="images/frame-decor.png" alt="Decorative Frame" />
-                <div class="masonry-overlay">
-                    <h3>Decorative Frame</h3>
-                    <p>Traditional ornamental patterns</p>
-                    <span class="masonry-category">Ornament</span>
-                </div>
+            <!-- Digital Bloom 2 -->
+            <div class="gallery-item item-bloom-2">
+                <img src="figma/assets/flower-aboutme 1.png" alt="Digital Bloom">
             </div>
 
-            <div class="masonry-item" data-title="Cultural Pattern" data-category="Pattern">
-                <img src="images/pattern-old-coin.png" alt="Pattern" />
-                <div class="masonry-overlay">
-                    <h3>Cultural Pattern</h3>
-                    <p>Intricate designs from history</p>
-                    <span class="masonry-category">Pattern</span>
-                </div>
+            <!-- Small Red Coin -->
+            <div class="gallery-item item-coin-red-small">
+                <img src="figma/assets/pattern 3 2.png" alt="Ancient Coin" style="filter: hue-rotate(300deg);">
             </div>
 
-            <div class="masonry-item" data-title="Lotus Bloom" data-category="Nature">
-                <img src="images/flower-1.png" alt="Lotus" />
-                <div class="masonry-overlay">
-                    <h3>Lotus Bloom</h3>
-                    <p>National flower of Vietnam</p>
-                    <span class="masonry-category">Nature</span>
-                </div>
+            <!-- Digital Bloom 3 -->
+            <div class="gallery-item item-bloom-3">
+                <img src="figma/assets/flower-aboutme 1.png" alt="Digital Bloom">
             </div>
 
         </div>
 
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            <span>Back to Home</span>
+        </a>
     </main>
-
-    <!-- LIGHTBOX -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-        </button>
-
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6" />
-            </svg>
-        </button>
-
-        <div class="lightbox-content">
-            <img id="lightboxImg" src="" alt="">
-            <div class="lightbox-info">
-                <h3 id="lightboxTitle"></h3>
-                <p id="lightboxCategory"></p>
-            </div>
-        </div>
-
-        <button class="lightbox-nav lightbox-next" id="lightboxNext">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 18l6-6-6-6" />
-            </svg>
-        </button>
-    </div>
-
-    <!-- BACK TO HOME -->
-    <a href="index.html#home" class="back-to-home">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-        </svg>
-        <span>Back to Home</span>
-    </a>
 
     <!-- HAMBURGER JS -->
     <script>
@@ -592,119 +388,6 @@
                 hamburger.classList.toggle('active');
             });
         }
-    </script>
-
-    <!-- LIGHTBOX JS -->
-    <script>
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxTitle = document.getElementById('lightboxTitle');
-        const lightboxCategory = document.getElementById('lightboxCategory');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const lightboxPrev = document.getElementById('lightboxPrev');
-        const lightboxNext = document.getElementById('lightboxNext');
-        const masonryItems = document.querySelectorAll('.masonry-item');
-
-        let currentIndex = 0;
-        const items = Array.from(masonryItems);
-
-        function openLightbox(index) {
-            currentIndex = index;
-            const item = items[index];
-            const img = item.querySelector('img');
-
-            lightboxImg.src = img.src;
-            lightboxTitle.textContent = item.dataset.title;
-            lightboxCategory.textContent = item.dataset.category;
-
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function showPrev() {
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            openLightbox(currentIndex);
-        }
-
-        function showNext() {
-            currentIndex = (currentIndex + 1) % items.length;
-            openLightbox(currentIndex);
-        }
-
-        // Event listeners
-        masonryItems.forEach((item, index) => {
-            item.addEventListener('click', () => openLightbox(index));
-        });
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxPrev.addEventListener('click', showPrev);
-        lightboxNext.addEventListener('click', showNext);
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') showPrev();
-            if (e.key === 'ArrowRight') showNext();
-        });
-
-        // Close on background click
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-    </script>
-
-    <!-- SCROLL ANIMATION -->
-    <script>
-        const fadeElements = document.querySelectorAll('.masonry-item');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        fadeElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(el);
-        });
-    </script>
-
-    <!-- p5 (CURSOR) -->
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-    <script src="sketch3.js"></script>
-
-    <!-- PAGE TRANSITION SCRIPT -->
-    <script>
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (!href || href.startsWith('#') || href.startsWith('javascript')) return;
-
-                if (href.endsWith('.html') || href.includes('index')) {
-                    e.preventDefault();
-                    const transition = document.querySelector('.page-transition');
-                    transition.classList.add('fade-out');
-
-                    setTimeout(() => {
-                        window.location.href = href;
-                    }, 500);
-                }
-            });
-        });
     </script>
 
 </body>

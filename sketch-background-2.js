@@ -6,7 +6,7 @@ const aboutSketch = (p) => {
   let isMobile = false;
 
   p.preload = () => {
-    img = p.loadImage("images/pattern-old-coin.png");
+    img = p.loadImage("figma/assets/pattern 3 1.png");
   };
 
   p.setup = () => {
