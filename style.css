@@ -305,13 +305,16 @@ main {
 .home-layout {
   position: relative;
   z-index: 2;
-
-  min-height: 110vh;
-  padding: 120px 80px 200px;
-
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 80px 250px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
   align-items: center;
+  gap: 80px;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 /* LEFT COLUMN */
@@ -325,13 +328,12 @@ main {
   font-family: 'Handjet', sans-serif;
   font-size: clamp(64px, 9vw, 128px);
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
+  color: #FFFFFF;
   position: relative;
-  padding-top: 15vh;
-  padding-bottom: 10vh;
+  margin: 0;
 }
 
 .First-intro span {
@@ -340,64 +342,57 @@ main {
   font-weight: 400;
   letter-spacing: 0.02em;
   text-transform: none;
+  color: #FFFFFF;
 }
 
-.First-intro span1 {
+.First-intro .vietnamese-land {
   font-family: 'Handjet', sans-serif;
   font-style: normal;
   font-weight: 300;
   letter-spacing: 0.02em;
   text-transform: none;
-}
-
-.First-intro span1 {
-  display: inline-block;
-}
-
-.First-intro span1 {
   display: block;
   margin-left: 0.2em;
+  color: #FFFFFF;
   /* thụt sâu hơn TO my */
 }
 
 
-/* CENTER COLUMN */
+/* CENTER/BOTTOM - LOTUS FLOWERS */
 .home-center {
-  position: relative;
-  height: 100%;
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 100%;
+  max-width: 1400px;
   display: flex;
   justify-content: center;
+  pointer-events: none;
 }
 
-
-/* LOTUS VIDEOS WRAPPER */
 .lotus-wrapper {
-  position: absolute;
-
-  left: 72%;
-  bottom: -40%;
-
-  transform: translateX(10%);
-
-  z-index: 3;
-
   display: flex;
   gap: 40px;
   align-items: flex-end;
+  justify-content: center;
 }
 
 /* LOTUS BASE (Figma-style background) */
 .lotus {
   width: 429px;
-  /* Figma width */
+  max-width: 100%;
   aspect-ratio: 429 / 766;
-  /* Figma ratio */
-
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.lotus:hover {
+  transform: translateY(-5px);
 }
 
 /* LOTUS 1 */
@@ -411,17 +406,24 @@ main {
   background-image: url("figma/assets/Lotus GIF.gif");
 }
 
-.home-right-img {
-  position: absolute;
-  right: 70px;
-  top: 30%;
-  transform: translateY(-50%);
+.home-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  width: 420px;
-  /* chỉnh size tại đây */
-  max-width: 30vw;
-  /* tránh quá to trên màn nhỏ */
+.home-right-img {
+  width: 100%;
+  max-width: 550px;
   height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.home-right-img:hover {
+  transform: scale(1.02);
 }
 
 
@@ -1586,29 +1588,35 @@ main {
   /* Hero Section */
   .home-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 100px 40px 150px;
+    gap: 60px;
+    padding: 100px 40px 180px;
     min-height: auto;
   }
 
   .First-intro {
     font-size: clamp(48px, 8vw, 80px);
-    padding-top: 10vh;
-    padding-bottom: 5vh;
+    text-align: center;
+  }
+
+  .home-center {
+    bottom: -8%;
+    max-width: 100%;
   }
 
   .lotus-wrapper {
-    left: 60%;
-    bottom: -30%;
+    gap: 30px;
   }
 
   .lotus {
     width: 300px;
   }
 
+  .home-right {
+    justify-content: center;
+  }
+
   .home-right-img {
-    width: 280px;
-    right: 40px;
+    max-width: 400px;
   }
 
   /* About Section */
@@ -1669,27 +1677,32 @@ main {
   }
 
   .home-layout {
-    padding: 80px 24px 120px;
-    gap: 30px;
+    padding: 80px 24px 150px;
+    gap: 40px;
   }
 
   .First-intro {
     font-size: clamp(36px, 10vw, 56px);
-    padding-top: 5vh;
-    padding-bottom: 3vh;
     text-align: center;
+    line-height: 1.2;
   }
 
-  .First-intro span1 {
+  .First-intro .vietnamese-land {
     margin-left: 0;
     display: block;
     text-align: center;
   }
 
+  .home-center {
+    bottom: -5%;
+    width: 100%;
+    padding: 0 20px;
+  }
+
   .lotus-wrapper {
-    left: 50%;
-    bottom: -35%;
-    transform: translateX(-50%);
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .lotus {
@@ -1697,17 +1710,18 @@ main {
   }
 
   .lotus-2 {
-    display: none;
+    width: 150px;
+    transform: scale(0.6) translateY(15%);
+  }
+
+  .home-right {
+    order: -1;
   }
 
   .home-right-img {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
     width: 100%;
-    max-width: 300px;
-    margin: 20px auto;
+    max-width: 280px;
+    margin: 0 auto;
   }
 
   /* About Section */
