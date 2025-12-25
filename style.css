@@ -374,7 +374,7 @@ main {
   position: absolute;
 
   left: 72%;
-  bottom: -25%;
+  bottom: -40%;
 
   transform: translateX(10%);
 
@@ -593,11 +593,11 @@ main {
 
 .about-dragon {
   position: absolute;
-  bottom: -80px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  max-width: 1600px;
+  width: 70%;
+  max-width: 1200px;
   pointer-events: none;
   z-index: 1;
 
@@ -658,7 +658,7 @@ main {
 
 .about-readmore-wrapper {
   position: absolute;
-  bottom: -55vh;
+  bottom: -70vh;
   left: 10%;
   display: flex;
   align-items: center;
